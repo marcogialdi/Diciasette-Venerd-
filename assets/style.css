@@ -1,0 +1,332 @@
+/* ------------------------------------------------------------
+   Rossana Binetti – Psicologa
+   Palette "respiro": verde pino, salvia, lilla del crepuscolo
+   ------------------------------------------------------------ */
+
+:root {
+  --aria: #f2f4f1;        /* fondo */
+  --sabbia: #e3e7df;      /* superfici */
+  --pino: #1e2f2b;        /* testo */
+  --pino-soft: #4a5d58;   /* testo secondario */
+  --salvia: #7c9a86;      /* linee, dettagli */
+  --lilla: #6f5e9e;       /* accento, link, azioni */
+  --lilla-scuro: #54467d;
+
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --misura: 64ch;
+  --gutter: clamp(16px, 5vw, 56px);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--aria);
+  color: var(--pino);
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: var(--lilla);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--lilla-scuro); }
+
+:focus-visible {
+  outline: 2px solid var(--lilla);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Navigazione ---------- */
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 32px;
+  padding: 28px var(--gutter) 0;
+  font-family: var(--sans);
+}
+
+.firma {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--pino);
+  text-decoration: none;
+  line-height: 1.2;
+}
+.firma small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--pino-soft);
+  letter-spacing: 0.01em;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+.menu a {
+  color: var(--pino-soft);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+}
+.menu a:hover { color: var(--pino); }
+.menu a[aria-current="page"] {
+  color: var(--pino);
+  border-bottom-color: var(--salvia);
+}
+.menu .prenota-link {
+  color: var(--lilla);
+}
+
+/* ---------- Struttura ---------- */
+
+main { padding: 0 var(--gutter) 96px; }
+
+.apertura {
+  max-width: 1080px;
+  padding: clamp(56px, 10vw, 120px) 0 clamp(40px, 6vw, 72px);
+}
+
+.apertura h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 7vw, 5.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+}
+
+.apertura .sotto {
+  margin: 28px 0 0;
+  max-width: 46ch;
+  font-size: clamp(1.1875rem, 2vw, 1.375rem);
+  color: var(--pino-soft);
+}
+
+/* Il respiro: un'unica linea che si gonfia e si svuota lentamente */
+.respiro {
+  width: 100%;
+  max-width: 1080px;
+  height: 64px;
+  margin: 8px 0 0;
+  color: var(--salvia);
+}
+.respiro path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  transform-origin: center;
+  animation: respira 9s ease-in-out infinite;
+}
+@keyframes respira {
+  0%, 100% { transform: scaleY(0.35); }
+  45%, 55% { transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .respiro path { animation: none; transform: scaleY(0.7); }
+}
+
+/* Sezioni con titolo nel margine su schermi larghi */
+.blocco {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px 56px;
+  max-width: 1080px;
+  padding: 48px 0;
+  border-top: 1px solid var(--sabbia);
+}
+.blocco > h2 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+.blocco > .testo { max-width: var(--misura); }
+.blocco > .testo > :first-child { margin-top: 0; }
+
+@media (min-width: 860px) {
+  .blocco { grid-template-columns: 240px 1fr; }
+  .blocco > h2 { font-size: 1.375rem; padding-top: 4px; }
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  margin: 1.8em 0 0.4em;
+}
+
+p { margin: 0 0 1em; }
+
+.citazione {
+  margin: 0;
+  padding: 4px 0 4px 24px;
+  border-left: 2px solid var(--salvia);
+  font-style: italic;
+  font-size: 1.3125rem;
+  line-height: 1.5;
+}
+
+/* Elenchi semplici */
+.lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lista li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--sabbia);
+}
+.lista li:last-child { border-bottom: 0; }
+.lista strong { font-weight: 500; }
+
+/* Passi del primo incontro: è davvero una sequenza */
+.passi {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: passo;
+}
+.passi li {
+  counter-increment: passo;
+  position: relative;
+  padding: 0 0 22px 52px;
+}
+.passi li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--salvia);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--pino-soft);
+}
+
+/* Tariffe */
+.tariffe {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.0625rem;
+}
+.tariffe th,
+.tariffe td {
+  text-align: left;
+  vertical-align: top;
+  padding: 16px 12px 16px 0;
+  border-bottom: 1px solid var(--sabbia);
+}
+.tariffe th { font-weight: 500; }
+.tariffe td.prezzo {
+  text-align: right;
+  white-space: nowrap;
+  font-family: var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+.tariffe .nota {
+  display: block;
+  color: var(--pino-soft);
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+/* Azioni */
+.azione {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: var(--lilla);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 1rem;
+  text-decoration: none;
+}
+.azione:hover { background: var(--lilla-scuro); color: #fff; }
+
+.azione.secondaria {
+  background: transparent;
+  color: var(--lilla);
+  box-shadow: inset 0 0 0 1px var(--lilla);
+}
+.azione.secondaria:hover { background: var(--lilla); color: #fff; }
+
+/* Calendario Google */
+.calendario {
+  margin-top: 8px;
+  background: #fff;
+  border: 1px solid var(--sabbia);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.calendario iframe {
+  display: block;
+  width: 100%;
+  height: 720px;
+  border: 0;
+}
+.calendario-segnaposto {
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--pino-soft);
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+}
+
+.avviso {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--pino-soft);
+  background: var(--sabbia);
+  padding: 16px 20px;
+  border-radius: 10px;
+}
+
+/* Segnaposto da completare: evidenti finché non vengono sostituiti */
+.da-completare {
+  background: #ece6f7;
+  color: var(--lilla-scuro);
+  padding: 0 4px;
+  border-radius: 3px;
+  font-style: normal;
+}
+
+/* ---------- Piede ---------- */
+
+.piede {
+  padding: 40px var(--gutter) 56px;
+  border-top: 1px solid var(--sabbia);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--pino-soft);
+  line-height: 1.6;
+}
+.piede p { margin: 0 0 6px; max-width: 72ch; }
