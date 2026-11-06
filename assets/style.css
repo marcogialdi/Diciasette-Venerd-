@@ -55,7 +55,7 @@ a:hover { color: var(--lilla-scuro); }
 .top {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 12px 32px;
   padding: 28px var(--gutter) 0;
@@ -63,11 +63,20 @@ a:hover { color: var(--lilla-scuro); }
 }
 
 .firma {
-  font-family: var(--serif);
-  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 16px 20px;
+  flex-wrap: wrap;
   color: var(--pino);
   text-decoration: none;
   line-height: 1.2;
+}
+.firma img { height: 64px; width: auto; }
+.firma-nome {
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  padding-left: 20px;
+  border-left: 1px solid var(--sabbia);
 }
 .firma small {
   display: block;
@@ -330,3 +339,7 @@ p { margin: 0 0 1em; }
   line-height: 1.6;
 }
 .piede p { margin: 0 0 6px; max-width: 72ch; }
+
+@media (max-width: 520px) {
+  .firma-nome { padding-left: 0; border-left: 0; }
+}
