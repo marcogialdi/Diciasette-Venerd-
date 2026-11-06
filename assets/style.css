@@ -4,13 +4,13 @@
    ------------------------------------------------------------ */
 
 :root {
-  --avorio: #f8f5f0;        /* fondo */
+  --avorio: #faf6f2;        /* fondo */
   --carta: #fdfbf8;         /* schede */
-  --sabbia: #eee6dc;        /* fascia primo colloquio */
-  --cipria: #ead9cc;        /* cerchi delle icone */
-  --salvia-chiaro: #c5cebb; /* fascia esperienza */
-  --salvia: #66755f;        /* pulsanti */
-  --salvia-scuro: #4f5d4a;  /* barra finale, hover */
+  --sabbia: #f0e7df;        /* fascia primo colloquio */
+  --cipria: #e3d2c4;        /* cerchi delle icone */
+  --salvia-chiaro: #bac0b0; /* fascia esperienza */
+  --salvia: #586453;        /* pulsanti */
+  --salvia-scuro: #4a5646;  /* barra finale, hover */
   --inchiostro: #2c2b27;    /* testo */
   --inchiostro-2: #5c5a54;  /* testo secondario */
   --linea: #e3ddd4;         /* bordi */
@@ -307,7 +307,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 /* Fascia esperienza */
 .fascia-salvia {
   position: relative;
-  background: var(--salvia-chiaro);
+  background: linear-gradient(100deg, #c2c7b8 0%, #b6bcab 60%, #aeb4a3 100%);
   overflow: hidden;
 }
 .fascia-salvia .foglia {
@@ -316,8 +316,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   top: 50%;
   width: 140px;
   transform: translateY(-50%);
-  opacity: .35;
-  color: var(--salvia);
+  opacity: .45;
+  color: #8f977f;
 }
 .fascia-salvia .contenitore {
   display: grid;
@@ -544,7 +544,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 
 .barra {
-  background: var(--salvia-scuro);
+  background: #576553;
   color: #e8ece4;
   font-size: .8125rem;
 }
