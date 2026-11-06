@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adolescenti – Rossana Binetti, Psicologa</title>
   <meta name="description" content="Uno spazio di ascolto per adolescenti e preadolescenti, con percorsi individuali, di gruppo e di sostegno ai genitori.">
-  <meta name="theme-color" content="#eff5f4">
+  <meta name="theme-color" content="#f8f5f0">
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -17,77 +17,78 @@
 <a class="salta" href="#contenuto">Vai al contenuto</a>
 
 <header class="top">
-  <a class="firma" href="index.html">
-    <img src="assets/logo-orizzontale.svg" alt="Venerdì e Diciassette" width="221" height="60">
-    <span class="firma-nome">Dott.ssa Rossana Binetti<small>Psicologa</small></span>
-  </a>
-  <nav aria-label="Menu principale">
-    <ul class="menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chi-sono.html">Chi sono</a></li>
-      <li><a href="adolescenti.html" aria-current="page">Adolescenti</a></li>
-      <li><a href="perche-parlarne.html">Perché parlarne</a></li>
-      <li><a href="contatti.html">Contatti</a></li>
-      <li><a class="menu-prenota" href="prenota.html">Prenota un colloquio</a></li>
-    </ul>
-  </nav>
+  <div class="contenitore">
+    <a class="firma" href="index.html">
+      <img src="assets/logo-mark.svg" alt="" width="64" height="48">
+      <span class="firma-nome">Rossana Binetti<small>Psicologa</small></span>
+    </a>
+    <nav aria-label="Menu principale">
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-sono.html">Chi sono</a></li>
+        <li><a href="adolescenti.html" aria-current="page">Adolescenti</a></li>
+        <li><a href="perche-parlarne.html">Perché parlarne</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+        <li><a class="azione" href="prenota.html">Prenota <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <main id="contenuto">
-
-  <section class="apertura interna">
+  <section class="apertura-interna">
+    <div class="contenitore">
+      <p class="etichetta">Adolescenti</p>
     <h1>Crescere è un lavoro difficile.</h1>
     <p class="sotto">L'adolescenza è un periodo in cui cambia tutto insieme: il corpo, le emozioni, le amicizie, il rapporto con i genitori, l'idea di chi si è. Non serve avere “un problema” per meritare uno spazio in cui essere ascoltati.</p>
-    <svg class="respiro" viewBox="0 0 1000 72" preserveAspectRatio="none" aria-hidden="true">
-      <path class="due" d="M0 36 C 140 8, 260 8, 400 36 S 660 64, 800 36 S 940 8, 1000 30"/>
-      <path class="uno" d="M0 36 C 125 4, 250 4, 375 36 S 625 68, 750 36 S 937 4, 1000 36"/>
-    </svg>
+    </div>
   </section>
+  <div class="contenitore">
 
-  <section class="blocco">
-    <h2>Cosa succede in questi anni</h2>
-    <div class="testo">
+    <section class="blocco">
+      <h2>Cosa succede in questi anni</h2>
+      <div class="testo">
       <p>Il corpo si trasforma in fretta, a volte più in fretta di quanto si riesca ad accettarlo. Le emozioni diventano più intense e più difficili da gestire. Gli amici contano sempre di più, gli adulti di riferimento vengono messi in discussione.</p>
       <p>Dentro tutto questo, ragazzi e ragazze stanno costruendo la propria identità. Comportamenti che da fuori sembrano solo chiusura, rabbia o provocazione hanno quasi sempre un senso, se letti come parte di questo grande cambiamento.</p>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section class="blocco">
-    <h2>Cosa offro</h2>
-    <div class="testo">
+    <section class="blocco">
+      <h2>Cosa offro</h2>
+      <div class="testo">
       <h3>Colloqui individuali</h3>
       <p>Uno spazio riservato in cui un ragazzo o una ragazza può parlare liberamente, senza sentirsi giudicato. L'obiettivo è dare un nome a ciò che prova, riconoscere le proprie risorse e trovare modi nuovi di stare con sé e con gli altri.</p>
-      <h3>Percorsi di gruppo con corpo e respiro</h3>
+      <h3 id="gruppi">Percorsi di gruppo con corpo e respiro</h3>
       <p>Piccoli gruppi in cui si alternano attività corporee semplici, respirazione consapevole e momenti di confronto. Per molti ragazzi riconoscere un'emozione parte dal corpo: dal respiro, da una tensione, da una postura. Solo dopo arrivano le parole per raccontarla.</p>
       <p>Il gruppo, quando è un luogo di ascolto reciproco e di rispetto dei tempi di ciascuno, diventa a sua volta uno strumento di crescita.</p>
-      <h3>Sostegno ai genitori</h3>
+      <h3 id="genitori">Sostegno ai genitori</h3>
       <p>Incontri individuali o di gruppo per capire meglio le trasformazioni di questa età e trovare chiavi di lettura comuni. Quello che i ragazzi vivono negli incontri ha più valore quando trova continuità anche a casa.</p>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section class="blocco">
-    <h2>Corpo, gruppo, famiglia</h2>
-    <div class="testo">
+    <section class="blocco">
+      <h2>Corpo, gruppo, famiglia</h2>
+      <div class="testo">
       <p>Nel lavoro con gli adolescenti ho visto tre livelli intrecciarsi continuamente. Tenerli insieme rende il percorso più solido.</p>
       <ul class="tre">
         <li><strong>Il corpo</strong>La via d'accesso alle emozioni e alla consapevolezza di sé.</li>
         <li><strong>Il gruppo</strong>Uno spazio sicuro in cui condividere e riconoscersi negli altri.</li>
         <li><strong>La famiglia</strong>Perché ciò che cambia possa continuare nella vita di ogni giorno.</li>
       </ul>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section class="blocco">
-    <h2>Prevenire, non solo curare</h2>
-    <div class="testo">
+    <section class="blocco">
+      <h2>Prevenire, non solo curare</h2>
+      <div class="testo">
       <p>L'adolescenza è una finestra preziosa per sviluppare competenze che accompagneranno la persona per tutta la vita: riconoscere e regolare le emozioni, comunicare, gestire lo stress, chiedere aiuto.</p>
       <p>Per questo propongo percorsi anche a scuole, associazioni e centri educativi. <span class="da-completare">[confermare se vuole offrire questo servizio]</span></p>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section class="blocco">
-    <h2>Quando chiedere un colloquio</h2>
-    <div class="testo">
+    <section class="blocco">
+      <h2>Quando chiedere un colloquio</h2>
+      <div class="testo">
       <p>Non c'è bisogno di aspettare che le cose vadano male. Può essere utile, per esempio, quando un figlio o una figlia:</p>
       <ul class="lista">
         <li>sembra spesso in ansia, triste o irritabile, più del solito e più a lungo;</li>
@@ -96,39 +97,51 @@
         <li>attraversa un momento di passaggio: un trasloco, una separazione, un lutto, un cambio di scuola.</li>
       </ul>
       <p>Oppure, semplicemente, quando il dialogo in famiglia si è fatto difficile e serve un punto di vista esterno.</p>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section class="blocco">
-    <h2>Per i minorenni</h2>
-    <div class="testo">
+    <section class="blocco">
+      <h2>Per i minorenni</h2>
+      <div class="testo">
       <p class="avviso">Per avviare un percorso con un ragazzo o una ragazza minorenne è necessario il consenso di entrambi i genitori, o di chi esercita la responsabilità genitoriale. Il primo incontro può essere fatto con i genitori, da soli o insieme al figlio.</p>
       <div class="azioni">
         <a class="azione" href="prenota.html">Prenota un primo colloquio</a>
         <a class="azione leggera" href="perche-parlarne.html">Domande frequenti</a>
       </div>
-    </div>
-  </section>
+      </div>
+    </section>
 
+  </div>
 </main>
 
-<footer class="piede">
-  <svg class="piede-onda" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 20 C 160 0, 340 0, 500 20 S 840 40, 1000 20"/>
-  </svg>
-  <div class="piede-dentro">
-    <img src="assets/logo.svg" alt="Venerdì e Diciassette" width="460" height="400" style="height:auto;width:150px">
-    <div>
+<footer>
+  <section class="piede-contatti" aria-label="Contatti">
+    <div class="contenitore">
+      <div>
+        <p class="etichetta">Contatti</p>
+        <p class="nome">Dott.ssa Rossana Binetti</p>
+        <p class="ruolo">Psicologa</p>
+        <p class="motto">Ascolto · Corpo · Relazione</p>
+      </div>
       <ul>
-        <li><a href="chi-sono.html">Chi sono</a></li>
-        <li><a href="adolescenti.html">Adolescenti</a></li>
-        <li><a href="perche-parlarne.html">Perché parlarne</a></li>
-        <li><a href="contatti.html">Contatti</a></li>
-        <li><a href="prenota.html">Prenota un colloquio</a></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg> <a href="mailto:indirizzo@esempio.it">indirizzo@esempio.it</a></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.5 4-2.2 1.4a11 11 0 0 0 6.8 6.8L16 14l4 1.5V19a2 2 0 0 1-2 2C10.3 21 3 13.7 3 6a2 2 0 0 1 2-2Z"/></svg> <span class="da-completare">[telefono]</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg> In presenza a <span class="da-completare">[città]</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16.5V20"/></svg> Online</li>
       </ul>
-      <p>Dott.ssa Rossana Binetti, Psicologa. Iscritta all'Albo degli Psicologi della Regione <span class="da-completare">[regione]</span>, n. <span class="da-completare">[numero]</span>.</p>
-      <p>P. IVA <span class="da-completare">[partita IVA]</span>. Email: <a href="mailto:indirizzo@esempio.it">indirizzo@esempio.it</a></p>
-      <p>Le informazioni di questo sito non sostituiscono un colloquio professionale. <a href="privacy.html">Privacy</a></p>
+      <div class="logo-piede">
+        <img src="assets/logo.svg" alt="Venerdì e Diciassette" width="460" height="400">
+      </div>
+    </div>
+  </section>
+  <div class="barra">
+    <div class="contenitore">
+      <span class="albo">© 2026 Dott.ssa Rossana Binetti, Psicologa. Albo Psicologi <span class="da-completare">[regione]</span> n. <span class="da-completare">[numero]</span>. P. IVA <span class="da-completare">[…]</span></span>
+      <ul>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="perche-parlarne.html">Domande frequenti</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
     </div>
   </div>
 </footer>
