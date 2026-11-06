@@ -7,6 +7,12 @@ import os, sys
 
 OUT = sys.argv[1]
 
+# Versione del foglio di stile: cambia quando cambia il file, così i browser
+# non usano una copia vecchia rimasta in memoria.
+import hashlib
+with open(os.path.join(OUT, "assets", "style.css"), "rb") as _f:
+    VERSIONE_CSS = hashlib.sha1(_f.read()).hexdigest()[:8]
+
 MENU = [
     ("index.html", "Home"),
     ("chi-sono.html", "Chi sono"),
@@ -73,7 +79,7 @@ def pagina(file, titolo, descrizione, apertura, corpo, interna=True):
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v={VERSIONE_CSS}">
 </head>
 <body>
 

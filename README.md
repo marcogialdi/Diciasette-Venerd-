@@ -23,7 +23,7 @@ Intestazione, menu e piede sono uguali su tutte le pagine, quindi i testi si mod
 
 1. apri `strumenti/genera_sito.py` e cambia i testi;
 2. dal terminale, nella cartella del sito, lancia `python3 strumenti/genera_sito.py .`;
-3. fai commit e push: GitHub Pages pubblica da solo in un paio di minuti.
+3. fai commit e push (lo script aggiorna da solo il riferimento allo stile, così nessuno vede versioni vecchie): GitHub Pages pubblica da solo in un paio di minuti.
 
 Se modifichi a mano un file `.html`, ricordati che verrà sovrascritto al prossimo lancio dello script.
 
