@@ -22,7 +22,10 @@
       <img src="assets/logo-mark.svg" alt="" width="64" height="48">
       <span class="firma-nome">Rossana Binetti<small>Psicologa</small></span>
     </a>
-    <nav aria-label="Menu principale">
+    <button class="apri-menu" type="button" aria-expanded="false" aria-controls="menu-principale">
+      <span></span><span></span><span></span><span class="sr">Menu</span>
+    </button>
+    <nav aria-label="Menu principale" id="menu-principale">
       <ul class="menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="chi-sono.html">Chi sono</a></li>
@@ -122,5 +125,16 @@
   </div>
 </footer>
 
+<script>
+  (function () {
+    var b = document.querySelector('.apri-menu');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var aperto = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', String(!aperto));
+      document.querySelector('.top').classList.toggle('menu-aperto', !aperto);
+    });
+  })();
+</script>
 </body>
 </html>

@@ -22,7 +22,10 @@
       <img src="assets/logo-mark.svg" alt="" width="64" height="48">
       <span class="firma-nome">Rossana Binetti<small>Psicologa</small></span>
     </a>
-    <nav aria-label="Menu principale">
+    <button class="apri-menu" type="button" aria-expanded="false" aria-controls="menu-principale">
+      <span></span><span></span><span></span><span class="sr">Menu</span>
+    </button>
+    <nav aria-label="Menu principale" id="menu-principale">
       <ul class="menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="chi-sono.html" aria-current="page">Chi sono</a></li>
@@ -70,13 +73,19 @@
       </div>
     </section>
 
-    <section class="blocco">
-      <h2>Perché faccio questo lavoro</h2>
-      <div class="testo">
-      <p class="citazione">Perché la consapevolezza di sé, quando trova uno spazio per crescere, diventa apertura all'incontro con l'altro.</p>
-      <p><span class="da-completare">[qualche riga personale sulla motivazione, con parole sue]</span></p>
+  </div>
+  <section class="fascia-salvia">
+    <svg class="foglia" viewBox="0 0 120 300" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M60 300V20"/><path d="M60 60c-30-6-44-26-46-44 22 2 40 18 46 44Z" fill="currentColor"/><path d="M60 110c30-6 44-26 46-44-22 2-40 18-46 44Z" fill="currentColor"/><path d="M60 160c-30-6-44-26-46-44 22 2 40 18 46 44Z" fill="currentColor"/><path d="M60 210c30-6 44-26 46-44-22 2-40 18-46 44Z" fill="currentColor"/><path d="M60 260c-30-6-44-26-46-44 22 2 40 18 46 44Z" fill="currentColor"/></svg>
+    <div class="contenitore">
+      <div>
+        <p class="etichetta">Perché lo faccio</p>
+        <h2>Dall'ascolto di sé all'ascolto dell'altro.</h2>
+        <p><span class="da-completare">[qualche riga personale sulla motivazione, con parole sue]</span></p>
       </div>
-    </section>
+      <blockquote>La consapevolezza di sé, quando trova uno spazio per crescere, diventa apertura all'incontro con l'altro.</blockquote>
+    </div>
+  </section>
+  <div class="contenitore">
 
     <section class="blocco">
       <h2>Il nome</h2>
@@ -86,16 +95,18 @@
       </div>
     </section>
 
-    <section class="blocco">
-      <h2>Parliamone</h2>
-      <div class="testo">
-      <p>Se senti che potrebbe esserti utile, il primo passo è un colloquio conoscitivo.</p>
-      <div class="azioni">
-        <a class="azione" href="prenota.html">Prenota un colloquio</a>
-        <a class="azione leggera" href="contatti.html">Scrivimi</a>
+  </div>
+  <section class="fascia-sabbia">
+    <div class="contenitore">
+      <div>
+        <p class="etichetta">Parliamone</p>
+        <h2>Un primo passo, insieme.</h2>
       </div>
-      </div>
-    </section>
+      <p>Se senti che potrebbe esserti utile, il primo passo è un colloquio conoscitivo, senza impegno.</p>
+      <div class="azioni"><a class="azione" href="prenota.html">Prenota un primo colloquio <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a> <a class="azione leggera" href="contatti.html">Scrivimi</a></div>
+    </div>
+  </section>
+  <div class="contenitore">
 
   </div>
 </main>
@@ -132,5 +143,16 @@
   </div>
 </footer>
 
+<script>
+  (function () {
+    var b = document.querySelector('.apri-menu');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var aperto = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', String(!aperto));
+      document.querySelector('.top').classList.toggle('menu-aperto', !aperto);
+    });
+  })();
+</script>
 </body>
 </html>

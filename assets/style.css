@@ -387,7 +387,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .fascia-sabbia h2 { margin: 0; }
 .fascia-sabbia p { margin: 0; color: var(--inchiostro-2); max-width: 58ch; }
 @media (min-width: 900px) {
-  .fascia-sabbia .contenitore { grid-template-columns: auto 1fr auto; }
+  .fascia-sabbia .contenitore { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) auto; }
+  .fascia-sabbia .azioni { margin-top: 0; flex-direction: column; align-items: stretch; }
 }
 
 /* ---------- Pagine interne ---------- */
@@ -571,4 +572,45 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   html { scroll-behavior: auto; }
   @view-transition { navigation: none; }
   .domanda::details-content, .domanda summary::after { transition: none; }
+}
+
+/* Le fasce interrompono il contenitore: niente vuoti */
+.contenitore:empty { display: none; }
+.fascia-salvia + .contenitore > .blocco:first-child,
+.fascia-sabbia + .contenitore > .blocco:first-child { border-top: 0; }
+main > .contenitore > .fascia-sabbia:last-child { margin-bottom: 0; }
+
+/* ---------- Menu su telefono ---------- */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.apri-menu { display: none; }
+
+@media (max-width: 900px) {
+  .apri-menu {
+    display: grid;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 13px 11px;
+    background: transparent;
+    border: 1px solid var(--linea);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--inchiostro);
+  }
+  .apri-menu span:not(.sr) {
+    display: block;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform .35s var(--morbido), opacity .35s var(--morbido);
+  }
+  .menu-aperto .apri-menu span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .menu-aperto .apri-menu span:nth-child(2) { opacity: 0; }
+  .menu-aperto .apri-menu span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .top nav { flex-basis: 100%; display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--morbido); }
+  .top.menu-aperto nav { grid-template-rows: 1fr; }
+  .top nav .menu { overflow: hidden; flex-direction: column; align-items: flex-start; gap: 4px; font-size: 1.05rem; }
+  .top.menu-aperto nav .menu { padding: 8px 0 16px; }
+  .top nav .menu a { display: inline-block; padding: 8px 0; }
+  .top nav .menu .azione { margin-top: 8px; padding: 12px 22px; }
 }
