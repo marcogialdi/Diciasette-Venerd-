@@ -137,9 +137,6 @@ def pagina(file, titolo, descrizione, apertura, corpo, interna=True):
   <meta name="description" content="{descrizione}">
   <meta name="theme-color" content="#faf6f2">
   <link rel="icon" href="assets/prosopon-marchio.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css?v={VERSIONE_CSS}">
 </head>
 <body>
@@ -160,7 +157,8 @@ def pagina(file, titolo, descrizione, apertura, corpo, interna=True):
 <header class="top">
   <div class="contenitore">
     <a class="firma" href="index.html">
-      <img src="assets/prosopon-orizzontale.svg" alt="{STUDIO} – Studio di Psicologia, Dott.ssa Rossana Binetti" width="483" height="134">
+      <img src="assets/prosopon-marchio.svg" alt="" width="66" height="54">
+      <span class="firma-nome">{STUDIO}<small>Studio di psicologia</small><em>Dott.ssa Rossana Binetti</em></span>
     </a>
     <button class="apri-menu" type="button" aria-expanded="false" aria-controls="menu-principale">
       <span></span><span></span><span></span><span class="sr">Menu</span>
@@ -668,9 +666,67 @@ pagina("prenota.html", "Prenota un colloquio", "Prenota un colloquio online. Tar
         </ul>'''))
 
 # =========================================================================== PRIVACY
+# Bozza preparata da Claude (17 novembre 2026) sulla base delle scelte del registro.
+# Da far verificare a un professionista prima della pubblicazione: si trattano dati relativi alla salute.
 
-pagina("privacy.html", "Informativa privacy", "Informativa sul trattamento dei dati personali.",
-       '''      <h1>Informativa privacy</h1>''',
-       blocco("Da completare", f"        <p>{DC('testo dell’informativa privacy, da far verificare a un professionista')}</p>\n{p_lorem(2, 2)}"))
+def sezione_privacy(titolo, html):
+    return f"""
+    <section class="blocco privacy">
+      <h2>{titolo}</h2>
+      <div class="testo">
+{html}
+      </div>
+    </section>
+"""
+
+
+PRIVACY = [
+    ("Chi tratta i tuoi dati", f"""        <p>Titolare del trattamento è la Dott.ssa Rossana Binetti, psicologa, iscritta all'Albo degli Psicologi della Regione {DC("regione")} con il n. {DC("numero")}, P. IVA {DC("partita IVA")}, con sede in {DC("indirizzo del domicilio professionale")}.</p>
+        <p>Per qualsiasi domanda sul trattamento dei tuoi dati puoi scrivere a {EMAIL}.</p>"""),
+    ("Quali dati raccogliamo", """        <ul>
+          <li><strong>Dati di navigazione</strong>: indirizzo IP, tipo di browser, pagine visitate. Servono al funzionamento e alla sicurezza del sito.</li>
+          <li><strong>Dati di contatto</strong>: nome, email, telefono e il contenuto dei messaggi che invii per email o WhatsApp.</li>
+          <li><strong>Dati della prenotazione</strong>: nome, email, telefono, data e ora dell'appuntamento scelto.</li>
+          <li><strong>Dati per la fattura e il pagamento</strong>: nome, codice fiscale, indirizzo, importi e stato del pagamento. I dati della carta sono gestiti solo da Stripe e non arrivano mai alla psicologa.</li>
+          <li><strong>Dati relativi alla salute</strong>: le informazioni che condividi durante i colloqui. Sono coperte dal segreto professionale e non vengono raccolte attraverso il sito.</li>
+        </ul>"""),
+    ("Perché li trattiamo e su quale base", """        <ul>
+          <li>Rispondere alle tue richieste e gestire gli appuntamenti: esecuzione di misure precontrattuali e del contratto (art. 6, par. 1, lett. b del GDPR).</li>
+          <li>Svolgere la prestazione psicologica: esecuzione del contratto e finalità di assistenza sanitaria (art. 9, par. 2, lett. h del GDPR), nel rispetto del segreto professionale.</li>
+          <li>Emettere le fatture, conservarle e trasmettere i dati delle spese sanitarie al Sistema Tessera Sanitaria: obblighi di legge (art. 6, par. 1, lett. c del GDPR).</li>
+          <li>Garantire il funzionamento e la sicurezza del sito: legittimo interesse (art. 6, par. 1, lett. f del GDPR).</li>
+        </ul>
+        <p>Il sito non usa i tuoi dati per pubblicità né per profilazione.</p>"""),
+    ("Persone minorenni", """        <p>Per i percorsi con persone minorenni i dati sono trattati con il consenso di entrambi i genitori o di chi esercita la responsabilità genitoriale. La prenotazione va fatta da un genitore.</p>"""),
+    ("A chi possono essere comunicati", f"""        <p>I dati sono trattati dalla psicologa e da fornitori che la aiutano a erogare il servizio, nominati responsabili del trattamento:</p>
+        <ul>
+          <li>Google (Workspace, Calendar e Meet): email, prenotazioni e videochiamate;</li>
+          <li>TeamSystem (Fatture in Cloud): emissione e conservazione delle fatture;</li>
+          <li>Stripe: pagamenti online;</li>
+          <li>Supabase: area riservata della psicologa, con dati su server nell'Unione Europea;</li>
+          <li>{DC("fornitore dell'hosting del sito")}: pubblicazione del sito;</li>
+          <li>il commercialista, per gli adempimenti fiscali.</li>
+        </ul>
+        <p>Per obbligo di legge, i dati delle fatture sono trasmessi all'Agenzia delle Entrate e al Sistema Tessera Sanitaria. I dati non sono diffusi né venduti.</p>"""),
+    ("Trasferimenti fuori dall'Unione Europea", """        <p>Alcuni fornitori (Google, Stripe e il fornitore dell'hosting) possono trattare dati anche negli Stati Uniti. In questi casi il trasferimento avviene sulla base del Data Privacy Framework UE-USA o delle clausole contrattuali standard approvate dalla Commissione Europea.</p>"""),
+    ("Per quanto tempo li conserviamo", """        <ul>
+          <li>Messaggi e richieste di informazioni: per il tempo necessario a rispondere, e comunque non oltre 12 mesi se non segue un percorso.</li>
+          <li>Prenotazioni: per la durata del percorso.</li>
+          <li>Fatture e dati contabili: 10 anni, come previsto dalla legge.</li>
+          <li>Documentazione professionale: per il tempo previsto dal Codice deontologico e dalle norme applicabili.</li>
+        </ul>"""),
+    ("I tuoi diritti", f"""        <p>Puoi chiedere in qualsiasi momento di accedere ai tuoi dati, correggerli, cancellarli quando possibile, limitarne il trattamento, riceverli in un formato leggibile e opporti al trattamento (articoli 15-22 del GDPR). Puoi anche opporti alla trasmissione delle tue spese sanitarie al Sistema Tessera Sanitaria, dicendolo al momento del pagamento.</p>
+        <p>Per esercitare i tuoi diritti scrivi a {EMAIL}. Se ritieni che i tuoi dati siano trattati in modo non corretto, puoi presentare un reclamo al <a href="https://www.garanteprivacy.it/">Garante per la protezione dei dati personali</a>.</p>"""),
+    ("Cookie", """        <p>Il sito non usa cookie di profilazione né strumenti di statistica. I caratteri tipografici sono ospitati sul sito stesso, senza collegamenti a server esterni.</p>
+        <p>La pagina Prenota mostra il calendario di Google: quando la apri, Google può impostare cookie tecnici necessari al funzionamento della prenotazione, secondo la propria <a href="https://policies.google.com/privacy?hl=it">informativa</a>.</p>"""),
+]
+
+corpo_privacy = sezione_privacy("Bozza", f'        <p class="avviso">Questa informativa è una bozza: va verificata da un professionista prima della pubblicazione definitiva. {DC("da verificare")}</p>')
+corpo_privacy += "".join(sezione_privacy(t, h) for t, h in PRIVACY)
+pagina("privacy.html", "Informativa privacy", "Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR).",
+       """      <h1>Informativa privacy</h1>
+      <p class="sotto">Come vengono trattati i dati personali di chi visita il sito, prenota un colloquio o si rivolge alla psicologa, ai sensi del Regolamento UE 2016/679 (GDPR).</p>
+      <p class="aggiornamento">Ultimo aggiornamento: 17 novembre 2026</p>""",
+       corpo_privacy)
 
 print("ok")
