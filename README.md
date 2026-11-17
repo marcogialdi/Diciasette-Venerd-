@@ -13,7 +13,7 @@ https://marcogialdi.github.io/Diciasette-Venerd-/
 | `adolescenti.html` | Adolescenti e famiglie |
 | `aziende.html` | Aziende: sportello di ascolto e servizi per le organizzazioni |
 | `come-lavoro.html` | Come lavoro: approccio sistemico-relazionale |
-| `studio.html` | Lo studio: galleria foto e come arrivare |
+| `online.html` | Colloqui online: perché da casa propria, come funziona, cosa serve |
 | `perche-parlarne.html` | Domande frequenti ("Perché dovrei parlare con uno sconosciuto?") |
 | `contatti.html` | Contatti |
 | `prenota.html` | Prenota un colloquio (calendario Google e tariffe) |

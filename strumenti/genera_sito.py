@@ -76,7 +76,7 @@ MENU = [
     ("chi-sono.html", "Chi sono"),
     ("percorsi.html", "Percorsi"),
     ("come-lavoro.html", "Come lavoro"),
-    ("studio.html", "Lo studio"),
+    ("online.html", "Colloqui online"),
     ("perche-parlarne.html", "Domande frequenti"),
     ("contatti.html", "Contatti"),
 ]
@@ -87,7 +87,7 @@ ETICHETTE = {
     "adolescenti.html": "Percorsi",
     "aziende.html": "Percorsi",
     "come-lavoro.html": "Come lavoro",
-    "studio.html": "Lo studio",
+    "online.html": "Colloqui online",
     "perche-parlarne.html": "Domande frequenti",
     "contatti.html": "Contatti",
     "prenota.html": "Prenotazioni",
@@ -191,8 +191,7 @@ def pagina(file, titolo, descrizione, apertura, corpo, interna=True):
         <li>{ICONE["telefono"]} {TELEFONO}</li>
         <li>{ICONE["chat"]} <a href="{WHATSAPP}">WhatsApp</a></li>
         <li>{ICONE["posta"]} {EMAIL}</li>
-        <li>{ICONE["luogo"]} {DC("indirizzo dello studio")}</li>
-        <li>{ICONE["schermo"]} Anche online</li>
+        <li>{ICONE["schermo"]} <a href="online.html">Colloqui online, da dove ti trovi</a></li>
       </ul>
       <div class="logo-piede">
         <img src="assets/prosopon-logo.svg" alt="{STUDIO} – Studio di Psicologia, Dott.ssa Rossana Binetti" width="520" height="392">
@@ -348,6 +347,14 @@ CRESCITA_AMBITI = [
 ]
 CRESCITA_CHIUSA = "La crescita personale non è il tentativo di diventare qualcun altro, ma la possibilità di conoscere meglio sé stessi e valorizzare ciò che si è."
 
+# =========================================================================== COLLOQUI ONLINE (testo comune)
+# Proposta di Marco/Claude, da far rivedere a Rossana.
+ONLINE_TESTO = [
+    "I colloqui si svolgono online, in videochiamata. Puoi affrontare il percorso da casa tua, in un ambiente che conosci e in cui ti senti a tuo agio.",
+    "Per molte persone parlare da un luogo familiare rende più semplice aprirsi e restare in contatto con ciò che si prova. Spesso vale anche per i ragazzi e le ragazze, che nel proprio spazio si sentono più liberi.",
+    "Non ci sono spostamenti né sale d'attesa: basta ritagliarsi un'ora in un posto tranquillo, ovunque tu sia.",
+]
+
 # =========================================================================== HOME
 
 aree_home = [
@@ -365,10 +372,10 @@ aree_html = "\n".join(f'        <li><a href="{h}">{n}</a></li>' for h, n in aree
 
 HOME_APERTURA = f'''  <section class="eroe">
     <div class="eroe-testo">
-      <p class="etichetta">Studio di psicologia a {DC("città")}</p>
+      <p class="etichetta">Psicologa · colloqui online</p>
       <h1>Dall'ascolto di sé all'ascolto dell'altro.</h1>
       <p class="per-chi">Privati · Adolescenti e famiglie · Aziende</p>
-      <p class="modalita">Colloqui in studio e online</p>
+      <p class="modalita">Colloqui online, da casa tua</p>
       <div class="azioni">
         {PRENOTA_BTN}
         <a class="azione leggera" href="percorsi.html">I percorsi</a>
@@ -546,34 +553,41 @@ pagina("come-lavoro.html", "Come lavoro",
        f'''      <h1>Come lavoro</h1>
       <blockquote class="in-evidenza">{lorem(1)[:80]}… <strong>{lorem(1, 2)[:40]}</strong></blockquote>''',
        f'''
-    <div class="foto larga"><span>{DC("foto dello studio, a tutta larghezza")}</span></div>
+    <div class="foto larga"><span>{DC("foto, a tutta larghezza")}</span></div>
 ''' + blocco("Un approccio sistemico-relazionale", p_lorem(3, 2))
        + blocco("Il primo colloquio", f'''        <ol class="passi">
 {passi_lorem}
         </ol>''')
        + blocco("Durata e frequenza", p_lorem(1, 3))
-       + blocco("In studio e online", p_lorem(1, 2))
+       + blocco("Online, da casa tua", f"        <p>{ONLINE_TESTO[0]}</p>\n        <a class=\"collegamento\" href=\"online.html\">Come funzionano i colloqui online {FRECCIA}</a>")
        + fascia_rosa("Iniziare", "Un primo passo, insieme.", lorem(2), PRENOTA_BTN + " " + SCRIVIMI_BTN))
 
-# =========================================================================== LO STUDIO
+# =========================================================================== COLLOQUI ONLINE
+# Testo proposto da Marco/Claude (17 novembre 2026), da far rivedere a Rossana.
 
-galleria = "\n".join(f'      <div class="foto"><span>{DC(f"foto {i}")}</span></div>' for i in range(1, 7))
-pagina("studio.html", "Lo studio", "Le foto dello studio e come raggiungerlo.",
-       f'''      <h1>Lo studio</h1>
-      <p class="sotto">{lorem(1, 1)}</p>''',
+passi_online = "\n".join(f"          <li>{t}</li>" for t in [
+    "Scegli giorno e orario nella pagina Prenota.",
+    "Ricevi un'email di conferma con l'invito per il tuo calendario e il link della videochiamata.",
+    "All'ora dell'appuntamento apri il link: non serve installare niente.",
+])
+pagina("online.html", "Colloqui online",
+       "I colloqui si svolgono online: puoi affrontare il percorso da casa tua, in un ambiente in cui ti senti a tuo agio.",
+       f'''      <h1>Colloqui online</h1>
+      <p class="sotto">Il percorso si svolge in videochiamata: da casa tua, in un ambiente che conosci.</p>''',
        f'''
-    <div class="galleria">
-{galleria}
-    </div>
-''' + blocco("Come arrivare", f'''        <dl class="recapiti">
-          <dt>Indirizzo</dt>
-          <dd>{DC("indirizzo dello studio")}</dd>
-          <dt>Mezzi</dt>
-          <dd>{lorem(1)}</dd>
-          <dt>Parcheggio</dt>
-          <dd>{lorem(1, 1)}</dd>
-        </dl>
-        <div class="mappa">{DC("mappa")}</div>'''))
+    <div class="foto larga"><span>{DC("foto")}</span></div>
+''' + blocco("Da un luogo in cui ti senti a tuo agio", "\n".join(f"        <p>{t}</p>" for t in ONLINE_TESTO))
+       + blocco("Come funziona", f'''        <ol class="passi">
+{passi_online}
+        </ol>''')
+       + blocco("Cosa serve", elenco([
+           ("Un computer, un tablet o uno smartphone", "Con videocamera e microfono."),
+           ("Una connessione stabile", "Meglio il Wi-Fi di casa che la rete del telefono."),
+           ("Un posto tranquillo", "Una stanza in cui nessuno ti senta e non ti interrompa."),
+           ("Le cuffie", "Non indispensabili, ma aiutano a sentirsi più raccolti."),
+         ]))
+       + blocco("Riservatezza", p_lorem(1, 3))
+       + fascia_rosa("Iniziare", "Un primo passo, insieme.", lorem(1, 2), PRENOTA_BTN + " " + SCRIVIMI_BTN))
 
 # =========================================================================== DOMANDE FREQUENTI
 
@@ -585,7 +599,7 @@ DOMANDE = [
     "Quanto dura un percorso?",
     "Mio figlio non vuole venire. Cosa posso fare?",
     "Psicologa, psicoterapeuta, psichiatra: che differenza c'è?",
-    "Si può fare online?",
+    "Come funzionano i colloqui online?",
     "Quanto costa? È detraibile?",
 ]
 voci_faq = "\n".join(f'''        <details class="domanda"{" open" if i == 0 else ""}>
@@ -619,13 +633,8 @@ pagina("contatti.html", "Contatti", "Come contattare la Dott.ssa Rossana Binetti
           <dd>{ORARI}</dd>
         </dl>
         <div class="azioni">{PRENOTA_BTN}</div>''')
-       + blocco("Dove ci incontriamo", f'''        <dl class="recapiti">
-          <dt>In studio</dt>
-          <dd>{DC("indirizzo dello studio")}</dd>
-          <dt>Online</dt>
-          <dd>{lorem(1)}</dd>
-        </dl>
-        <div class="mappa">{DC("mappa")}</div>''')
+       + blocco("Dove ci incontriamo", f'''        <p>{ONLINE_TESTO[0]}</p>
+        <a class="collegamento" href="online.html">Come funzionano i colloqui online {FRECCIA}</a>''')
        + blocco("Dati professionali", f'''        <ul class="lista">
           <li>Dott.ssa Rossana Binetti, Psicologa</li>
           <li>Iscritta all'Albo degli Psicologi della Regione {DC("regione")}, n. {DC("numero")}</li>
@@ -635,7 +644,7 @@ pagina("contatti.html", "Contatti", "Come contattare la Dott.ssa Rossana Binetti
 
 # =========================================================================== PRENOTA
 
-pagina("prenota.html", "Prenota un colloquio", "Prenota un colloquio in studio o online. Tariffe e modalità.",
+pagina("prenota.html", "Prenota un colloquio", "Prenota un colloquio online. Tariffe e modalità.",
        f'''      <h1>Prenota un colloquio</h1>
       <p class="sotto">{lorem(1)}</p>''',
        blocco("Scegli un orario", f'''        <div class="calendario">
