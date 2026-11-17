@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------
-   Venerdì e Diciassette – Dott.ssa Rossana Binetti, Psicologa
+   Prosopon – Studio di Psicologia, Dott.ssa Rossana Binetti
    Stile: avorio caldo, verde salvia, rosa cipria, serif elegante
    ------------------------------------------------------------ */
 
@@ -128,7 +128,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   color: var(--inchiostro);
 }
 .firma:hover { color: var(--inchiostro); }
-.firma img { height: 48px; width: auto; }
+.firma img { height: 58px; width: auto; }
 .firma-nome {
   font-family: var(--serif);
   font-size: 1.7rem;
@@ -563,7 +563,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .barra .albo { opacity: .85; }
 
 @media (max-width: 640px) {
-  .firma img { height: 40px; }
+  .firma img { height: 46px; }
   .firma-nome { font-size: 1.45rem; }
   .menu { gap: 2px 18px; }
 }
@@ -613,4 +613,113 @@ main > .contenitore > .fascia-sabbia:last-child { margin-bottom: 0; }
   .top.menu-aperto nav .menu { padding: 8px 0 16px; }
   .top nav .menu a { display: inline-block; padding: 8px 0; }
   .top nav .menu .azione { margin-top: 8px; padding: 12px 22px; }
+}
+
+/* =====================================================================
+   Struttura ispirata a Dedalo Psicologia (novembre 2026)
+   ===================================================================== */
+
+/* Barra superiore: telefono, WhatsApp, orari, email */
+.barra-alta { background: var(--salvia-scuro); color: #eef0ea; font-size: .8125rem; }
+.barra-alta .contenitore { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 24px; padding-top: 8px; padding-bottom: 8px; }
+.barra-alta ul { display: flex; flex-wrap: wrap; gap: 4px 24px; list-style: none; margin: 0; padding: 0; }
+.barra-alta li, .barra-alta > .contenitore > span { display: inline-flex; align-items: center; gap: 8px; }
+.barra-alta svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.barra-alta a { color: #fff; text-decoration: none; }
+.barra-alta a:hover { text-decoration: underline; }
+.barra-alta .da-completare { background: rgba(255,255,255,.18); color: #fff; }
+@media (max-width: 720px) { .solo-largo { display: none !important; } }
+
+/* Sottomenu Percorsi */
+.con-sottomenu { position: relative; }
+.con-sottomenu > a::after {
+  content: ""; display: inline-block; width: 6px; height: 6px; margin-left: 8px;
+  border-right: 1.2px solid currentColor; border-bottom: 1.2px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+}
+.sottomenu { list-style: none; margin: 0; padding: 0; }
+@media (min-width: 901px) {
+  .sottomenu {
+    position: absolute; left: -18px; top: 100%; min-width: 250px; padding: 10px 0;
+    background: var(--carta); border: 1px solid var(--linea); border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(44,43,39,.08);
+    opacity: 0; visibility: hidden; transform: translateY(6px);
+    transition: opacity .3s var(--morbido), transform .3s var(--morbido), visibility .3s;
+  }
+  .con-sottomenu:hover .sottomenu, .con-sottomenu:focus-within .sottomenu { opacity: 1; visibility: visible; transform: none; }
+  .sottomenu a { display: block; padding: 8px 18px; background-image: none !important; }
+  .sottomenu a:hover { background-color: var(--avorio); }
+}
+@media (max-width: 900px) {
+  .sottomenu { padding: 0 0 4px 16px; border-left: 1px solid var(--linea); margin: 2px 0 6px; }
+  .sottomenu a { font-size: .95rem; color: var(--inchiostro-2); }
+}
+
+/* "Posso aiutarti in queste aree" */
+.aree { border-bottom: 1px solid var(--linea); }
+.aree .contenitore { padding-top: 36px; padding-bottom: 40px; }
+.aree h2 { font-size: clamp(1.6rem, 2.6vw, 2rem); margin-bottom: 18px; }
+.aree ul { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.aree a {
+  display: inline-block; padding: 8px 16px; border-radius: 999px;
+  background: var(--carta); border: 1px solid var(--linea);
+  color: var(--inchiostro); text-decoration: none; font-size: .9375rem;
+  transition: background-color .3s var(--morbido), border-color .3s var(--morbido);
+}
+.aree a:hover { background: var(--cipria); border-color: var(--cipria); }
+
+/* Scheda professionista */
+.professionista { display: grid; gap: 28px; align-items: center; }
+.professionista h2 { margin: 0 0 4px; }
+.professionista .qualifica { color: var(--inchiostro-2); font-size: .9375rem; letter-spacing: .02em; margin-bottom: 18px; }
+.foto.ritratto { min-height: 300px; border-radius: 10px; }
+@media (min-width: 900px) {
+  .professionista { grid-template-columns: 340px 1fr; gap: 56px; }
+  .professionista.grande { grid-template-columns: 400px 1fr; padding: 56px 0 24px; }
+  .foto.ritratto { min-height: 400px; }
+}
+.professionista.grande { padding-top: 40px; }
+
+/* Pagina percorsi: un blocco per servizio, dettaglio che si apre */
+.percorso { padding: clamp(40px, 6vw, 64px) 0; scroll-margin-top: 120px; }
+.percorso + .percorso { border-top: 1px solid var(--linea); }
+.percorso h2 { margin-bottom: 6px; }
+.percorso .sottotitolo { font-family: var(--serif); font-style: italic; font-size: 1.45rem; line-height: 1.35; color: var(--inchiostro-2); margin-bottom: 22px; max-width: 46ch; }
+.percorso .testo { max-width: 68ch; }
+.percorso .chiusa { font-family: var(--serif); font-style: italic; font-size: 1.3rem; line-height: 1.4; margin: 22px 0 0; padding-left: 20px; border-left: 1px solid var(--salvia); }
+
+.apri-chiudi { margin-top: 8px; }
+.apri-chiudi summary {
+  list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 22px; border: 1px solid var(--inchiostro-2); border-radius: 8px; font-size: .9375rem;
+  transition: background-color .3s var(--morbido), color .3s var(--morbido);
+}
+.apri-chiudi summary::-webkit-details-marker { display: none; }
+.apri-chiudi summary:hover { background: var(--inchiostro); color: #fff; }
+.apri-chiudi .chiudi, .apri-chiudi[open] .apri { display: none; }
+.apri-chiudi[open] .chiudi { display: inline; }
+.apri-chiudi .dettaglio { padding-top: 26px; }
+.apri-chiudi .dettaglio h3 { margin-top: 0; }
+.apri-chiudi::details-content {
+  block-size: 0; overflow: clip; opacity: 0;
+  transition: block-size .5s var(--morbido), opacity .5s var(--morbido), content-visibility .5s allow-discrete;
+}
+.apri-chiudi[open]::details-content { block-size: auto; opacity: 1; }
+
+.ambiti { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.ambiti li { padding: 14px 0 14px 28px; border-bottom: 1px solid var(--linea); position: relative; }
+.ambiti li::before { content: ""; position: absolute; left: 4px; top: 24px; width: 8px; height: 8px; border-radius: 50%; background: var(--cipria); }
+.ambiti strong { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.3rem; line-height: 1.25; }
+
+/* Come lavoro: frase in evidenza e foto a tutta larghezza */
+.in-evidenza { margin: 22px 0 0; max-width: 40ch; font-family: var(--serif); font-size: 1.6rem; line-height: 1.35; padding-left: 22px; border-left: 2px solid var(--salvia); }
+.in-evidenza strong { font-weight: 600; }
+.foto.larga { min-height: 320px; margin-top: 40px; border-radius: 10px; }
+
+/* Galleria dello studio */
+.galleria { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); padding: 48px 0 8px; }
+.galleria .foto { min-height: 220px; border-radius: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .apri-chiudi::details-content, .sottomenu { transition: none; }
 }

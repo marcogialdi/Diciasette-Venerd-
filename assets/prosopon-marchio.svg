@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -4 170 140" role="img" aria-label="Prosopon"><title>Prosopon</title><g transform="translate(0 0) scale(1)" fill="none" stroke-width="5.50" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="#586453" d="M24 6 C44 4 58 16 59 34 C59 40 60 45 62 49 C66 55 70 60 71 63 C72 66 69 67 65 67 C65 70 66 72 67 73 C65 75 65 76 67 78 C66 81 63 82 62 85 C62 92 57 98 48 99 C45 106 45 116 47 128"/>
+  <path stroke="#b8826d" transform="translate(150 0) scale(-1 1)" d="M24 6 C44 4 58 16 59 34 C59 40 60 45 62 49 C66 55 70 60 71 63 C72 66 69 67 65 67 C65 70 66 72 67 73 C65 75 65 76 67 78 C66 81 63 82 62 85 C62 92 57 98 48 99 C45 106 45 116 47 128"/>
+  <circle cx="75" cy="30" r="5.5" fill="#b8826d" stroke="none" opacity=".85"/>
+</g></svg>

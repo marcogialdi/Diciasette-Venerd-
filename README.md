@@ -1,4 +1,4 @@
-# Venerdì e Diciassette
+# Prosopon – Studio di Psicologia
 
 Sito della Dott.ssa Rossana Binetti, psicologa. Sito statico pubblicato con GitHub Pages:
 https://marcogialdi.github.io/Diciasette-Venerd-/
@@ -9,13 +9,20 @@ https://marcogialdi.github.io/Diciasette-Venerd-/
 |---|---|
 | `index.html` | Home |
 | `chi-sono.html` | Chi sono |
-| `adolescenti.html` | Adolescenti |
-| `perche-parlarne.html` | Perché dovrei parlare con uno sconosciuto? (domande frequenti) |
+| `percorsi.html` | Percorsi: Sostegno psicologico e Crescita e benessere (testi di Rossana), rimandi ad Adolescenti e Aziende |
+| `adolescenti.html` | Adolescenti e famiglie |
+| `aziende.html` | Aziende: sportello di ascolto e servizi per le organizzazioni |
+| `come-lavoro.html` | Come lavoro: approccio sistemico-relazionale |
+| `studio.html` | Lo studio: galleria foto e come arrivare |
+| `perche-parlarne.html` | Domande frequenti ("Perché dovrei parlare con uno sconosciuto?") |
 | `contatti.html` | Contatti |
-| `prenota.html` | Prenota un colloquio (tariffe e calendario Google) |
+| `prenota.html` | Prenota un colloquio (calendario Google e tariffe) |
 | `privacy.html` | Informativa privacy (da completare) |
 | `assets/style.css` | Stile di tutto il sito |
-| `assets/logo*.svg` | Logo in versione verticale, orizzontale e solo disegno |
+| `assets/prosopon-*.svg` | Logo Prosopon (nome di lavoro): verticale, orizzontale, solo marchio |
+
+La struttura riprende quella di [Dedalo Psicologia](https://www.dedalopsicologia.it/): barra superiore con telefono e WhatsApp, menu con sottomenu Percorsi, aree di intervento in home, percorsi con "Scopri di più / Chiudi".
+I testi mancanti sono in Lorem ipsum; i testi di Rossana sono marcati "TESTO DI ROSSANA" nello script.
 
 ## Come modificare i testi
 
